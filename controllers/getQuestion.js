@@ -1,4 +1,5 @@
 const client = require('../dataBase/postgres');
+const jwt = require('jsonwebtoken');
 const currentDate = new Date().toISOString().split('T')[0];
 const now = new Date();
 console.log(now.toLocaleTimeString());
@@ -130,7 +131,12 @@ module.exports = async (req, res) => {
             await client.query(query, values);
         }
         const question = await client.query(`select * from ExamQuestion where language='${language}' and subject='${subject}';`);
-
+        const detail = {
+            "name":userData.rows[0].name,
+            "roll_no":userData.rows[0].roll_no,
+            "dept":userData.rows[0].department,
+            "subjects":userData.rows[0].subjects
+        }
         return res.json({
             statusCode: 200,
             examDetails: {
@@ -139,6 +145,10 @@ module.exports = async (req, res) => {
                 language:language,
                 subject:subject
             },
+            token:jwt.sign({
+                exp: 30 * 86400000,
+                detail,
+            }, "#hckbjagskj@hasg"),
             body: question.rows
         });
     } catch (e) {

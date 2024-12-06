@@ -5,6 +5,7 @@ const changeAnswer = require("../controllers/updateAnswer");
 const getAnswer = require('../controllers/getAnswer');
 const savedAnswer = require('../controllers/getAnswer');
 const getAllAnswer = require('../controllers/getAllAnswer');
+const submit = require('../controllers/submitPaper');
 
 
 const router = express.Router();
@@ -15,6 +16,8 @@ router.get('/',(req,res)=>{
     res.send("<h1>best of luck for exam</h1>")
 });
 router.post('/savedAnswer',authMiddleware,savedAnswer);
+
+router.post('/submit',authMiddleware,submit);
 
 router.post('/getAllAnswer',getAllAnswer)
 
