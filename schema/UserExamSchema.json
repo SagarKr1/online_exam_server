@@ -1,0 +1,17 @@
+{
+    "id":"Unique",
+    "roll_no":"String",
+    "dept":"String",
+    "attempt":"Int",
+    "paper":"String",
+    "fA_language":"String",
+    "sA_language":"String",
+    "thA_language":"String",
+    "f_time_attempt":"time",
+    "s_time_attempt":"time",
+    "th_time_attempt":"time",
+    "f_time_end":"time",
+    "s_time_end":"time",
+    "th_time_end":"time",
+    "exam_date":"Date"
+}

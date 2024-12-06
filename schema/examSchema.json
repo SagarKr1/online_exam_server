@@ -1,11 +1,11 @@
 [
     {
+        "lang":"String",
         "id": "String",
         "question": "String",
-        "1": "String",
-        "2": "String",
-        "3": "String",
-        "4": "String",
-        "Ans": "String"
+        "opt_1": "String",
+        "opt_2": "String",
+        "opt_3": "String",
+        "opt_4": "String"
     }
 ]
